@@ -1,0 +1,53 @@
+-------------------------------- Docker INTRO --------------------------------
+
+docker build /path_to_Dockerfile ----> To build a docker image based on Dockerfile
+docker run image_id ----> To Start a container based on an image
+docker stop container_name  ----> To stop the running container
+docker ps ----> To list all the running containers, use -a to list even stopped containers
+docker start container_id/container_name  ---->  To run the container stopped before
+docker attach container_name  ----> To run container in attached mode
+docker run -d image_id  ----> To run container in detach mode
+docker logs -f container_name ----> To attach container in attached mode
+docker run -it image_id ----> To run container in interactive mode
+docker start -ai container_name ----> To run container in interactive mode
+docker rm container_name  ----> To remove stopped container
+docker container prune ----> To remove all stopped containers
+docker images ----> To list all images
+docker rmi image_id ----> To remove docker images
+docker run --rm image_id ----> To remove container once exits automatically
+docker image inspect image_id ---> To inspect the image id
+docker cp source_path container_name:destination_path ----> To copy file to container
+docker run --name dummy_name image_id  ----> To name a container while starting for first time
+docker build -t name:tag .  ----> to give name and tag to an image
+docker tag old_name:old_tag new_name:new_tag  ----> To rename a image
+docker login  ----> To login to Dockerhub from local
+docker logout -----> To logout from Dockerhub from local
+docker push image_name(name:tag) ----> To push image to dockerhub
+--------------------------------------------------------------------------------
+
+------------------------------- Docker Temp data and Volumes ----------------------------------
+docker volume ls ----> list all docker volumes
+docker run -v source_path:container_path container_name  ----> To attach named volumes to a container
+docker volume rm volume_name  ----> To remove a volume
+docker volume prune  ----> To remove all volumes
+docker run -v source_path:container_path:ro container_name  ----> To attach named volumes to a container such that container cannot write to source_path but source can write to container
+docker run --env KEY:VALUE container_name  ----> To pass environment variable to container
+docker run --env-file ./env container_name  ----> To read environment variable from .env file to container
+docker build -t image_repo:version --build=arg NAME=VALUE .  ----> To read environment variable from .env file to container
+
+------------------------------------------------------------------------------------------------
+
+
+------------------------------ Docker Networks -------------------------------------------------
+host.docker.internal  ----> Docker command used in source code which resolves to host ip address
+docker container inspect ----> To get more details about the docker container
+docker network create network_name   -----> Docker network name (docker internal network)
+docker run --network network_name container_name   ----> To run container in a network
+------------------------------------------------------------------------------------------------
+
+
+----------------------------- Docker-Compose -------------------------------------------
+docker-compose up ----> To start a docker compose file
+docker-compose down ----> To remove all containers created via docker-compose( not the volumes)
+docker-compose down -v   ----> To remove all containers created via docker-compose and the volumes
+docker-compose build ----> command to just build the images without starting containers
