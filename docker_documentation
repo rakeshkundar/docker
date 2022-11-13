@@ -51,3 +51,10 @@ docker-compose up ----> To start a docker compose file
 docker-compose down ----> To remove all containers created via docker-compose( not the volumes)
 docker-compose down -v   ----> To remove all containers created via docker-compose and the volumes
 docker-compose build ----> command to just build the images without starting containers
+-----------------------------------------------------------------------------------------
+
+
+---------------------------- Docker Utility ---------------------------------------------
+docker exec container command ----> To execute commands inside a container
+docker run -it container_name commands
+docker-compose run service_name entrypoint_commands
